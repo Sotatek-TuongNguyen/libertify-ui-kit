@@ -1,4 +1,4 @@
-import { Text, TextProps as RNTextProps } from 'react-native';
+import { Text, TextProps as RNTextProps, ViewStyle } from 'react-native';
 import React from 'react';
 
 interface TextProps extends RNTextProps {
@@ -11,14 +11,13 @@ export default ({ children, variant = 'h4', style, ...props }: TextProps) => {
     h2: { fontSize: 32 },
     h3: { fontSize: 26 },
     h4: { fontSize: 18 },
-  };
-  const getStyles = (v: keyof typeof variants): { fontSize: number } => {
-    return variants[v] || variants.h4;
-  };
+  } as { [key: string]: ViewStyle };
+
+  const getStyles = (v: string): ViewStyle | undefined => variants[v];
   const styles = getStyles(variant);
   const wrapStyles = Array.isArray(style) ? style : [style];
-
   wrapStyles.unshift(styles);
+
   return (
     <Text {...props} style={wrapStyles}>
       {children}
