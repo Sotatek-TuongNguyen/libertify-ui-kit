@@ -1,12 +1,13 @@
 import * as React from 'react';
 
-import { SafeAreaView, StyleSheet, View } from 'react-native';
-import { Text } from 'libertify-ui-kit';
+import { Image, SafeAreaView, StyleSheet, View } from 'react-native';
+import { Button, Color, Text } from 'libertify-ui-kit';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <SafeAreaView>
+        {/* Text */}
         <Text variant="h1">This is heading 1</Text>
         <Text variant="h2">This is heading 2</Text>
         <Text variant="h3">This is heading 3</Text>
@@ -23,6 +24,31 @@ export default function App() {
         <Text variant="value2">This is value 2</Text>
         <Text variant="smallContent">This is small content</Text>
         <Text variant="overline">This is overline</Text>
+        {/* Button */}
+        <View style={styles.section}>
+          <Button>
+            Go to portfolio{' '}
+            <Image
+              source={{
+                uri: 'https://cdn-icons-png.flaticon.com/512/8867/8867464.png',
+              }}
+              style={styles.iconBtn}
+            />
+          </Button>
+          <Button type="outline">Go to portfolio</Button>
+          <Button type="outline" style={styles.roundedButton}>
+            <Image
+              source={{
+                uri: 'https://cdn-icons-png.flaticon.com/512/8867/8867464.png',
+              }}
+              style={[styles.iconBtn, { tintColor: Color.Turquoise }]}
+            />
+          </Button>
+          <Button type="outline" loading />
+          <Button type="clear" color={Color.Turquoise}>
+            Go to portfolio
+          </Button>
+        </View>
       </SafeAreaView>
     </View>
   );
@@ -31,10 +57,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 10,
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+  section: {
+    alignItems: 'flex-start',
+  },
+  iconBtn: {
+    width: 18,
+    height: 18,
+  },
+  roundedButton: {
+    borderRadius: 40,
   },
 });

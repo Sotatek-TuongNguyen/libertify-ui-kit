@@ -6,7 +6,7 @@ export default {
   DisableContent: '#494C57',
   GreyPrimary: '#737886',
   GreySecondary: '#A0A3AA',
-  White: '#3BD4CA',
+  White: '#FFFFFF',
   OrangeLight: '#FDDED1',
   GreenLight: '#DEF8F3',
   Purple: '#A262FF',
