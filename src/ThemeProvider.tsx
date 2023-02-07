@@ -1,7 +1,12 @@
 import React from 'react';
 import Color from './Color';
+import type TypeColor from './Color';
 
-export const themeDefault = {
+export interface Theme {
+  color: typeof TypeColor;
+}
+
+export const themeDefault: Theme = {
   color: Color,
 };
 
@@ -14,8 +19,10 @@ interface ThemeProviderProps {
   children?: JSX.Element | JSX.Element[] | undefined;
 }
 
-const ThemeProvider = ({ value, children }: ThemeProviderProps) => (
-  <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
-);
+const ThemeProvider = ({ value, children }: ThemeProviderProps) => {
+  return (
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  );
+};
 
 export default ThemeProvider;

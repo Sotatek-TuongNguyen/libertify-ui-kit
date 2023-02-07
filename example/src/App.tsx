@@ -73,8 +73,13 @@ export default function App() {
           <Tag type="success">Mon tag</Tag>
           <Tag type="info">Mon tag</Tag>
         </View>
-        <View style={styles.section}>
+        <View style={[styles.section, styles.itemsCenter]}>
           <CheckBox checked={checked} size={30} onChange={setChecked} />
+          <Text variant="body2">theme default</Text>
+          <ThemeProvider value={customTheme}>
+            <CheckBox checked={checked} size={30} onChange={setChecked} />
+            <Text variant="body2">with theme</Text>
+          </ThemeProvider>
         </View>
         <View style={styles.section}>
           {new Array(5).fill('').map((t, i) => (
@@ -105,5 +110,8 @@ const styles = StyleSheet.create({
   },
   roundedButton: {
     borderRadius: 40,
+  },
+  itemsCenter: {
+    alignItems: 'center',
   },
 });
