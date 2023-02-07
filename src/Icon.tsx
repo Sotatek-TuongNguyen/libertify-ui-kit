@@ -32,9 +32,10 @@ export default ({
   ...props
 }: IconProps) => {
   const wrapStyles = Array.isArray(style) ? [...style] : [style];
-  if (typeof source !== 'number' && name && icons[name]) {
-    source.uri = icons[name];
-  }
+  const wrapSource =
+    typeof source === 'number' || !name
+      ? source
+      : { uri: icons[name], ...source };
   wrapStyles.unshift({ width: size, height: size, tintColor: color });
-  return <Image style={wrapStyles} source={source} {...props} />;
+  return <Image style={wrapStyles} source={wrapSource} {...props} />;
 };
