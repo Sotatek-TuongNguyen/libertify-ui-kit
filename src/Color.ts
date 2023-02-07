@@ -1,0 +1,16 @@
+export default {
+  DarkPrimary: '#161A26',
+  DarkSecondary: '#222733',
+  DarkTurquoise: '#1E3F46',
+  Turquoise: '#3BD4CA',
+  DisableContent: '#494C57',
+  GreyPrimary: '#737886',
+  GreySecondary: '#A0A3AA',
+  White: '#FFFFFF',
+  OrangeLight: '#FDDED1',
+  GreenLight: '#DEF8F3',
+  Purple: '#A262FF',
+  Pink: '#FF5A82',
+  Success: '#4AD772',
+  Alert: '#D74A4A',
+};
