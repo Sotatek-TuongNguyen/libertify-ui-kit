@@ -5,9 +5,20 @@ import Tag from './Tag';
 import Icon from './Icon';
 import CheckBox from './CheckBox';
 import RadioButton from './RadioButton';
+import ThemeProvider, { createTheme } from './ThemeProvider';
 
 export function multiply(a: number, b: number): Promise<number> {
   return Promise.resolve(a * b);
 }
 
-export { Color, Text, Button, Tag, Icon, CheckBox, RadioButton };
+export {
+  Color,
+  Text,
+  Button,
+  Tag,
+  Icon,
+  CheckBox,
+  RadioButton,
+  ThemeProvider,
+  createTheme,
+};

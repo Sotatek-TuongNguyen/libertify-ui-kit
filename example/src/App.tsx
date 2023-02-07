@@ -9,11 +9,18 @@ import {
   RadioButton,
   Tag,
   Text,
+  ThemeProvider,
+  createTheme,
 } from 'libertify-ui-kit';
 
 export default function App() {
   const [checked, setChecked] = React.useState(true);
   const [indexSelected, setIndexSelected] = React.useState(0);
+
+  const themeDefault = createTheme();
+  const customTheme = createTheme({
+    color: { ...themeDefault.color, Turquoise: '#ffffff' },
+  });
 
   return (
     <View style={styles.container}>
@@ -24,8 +31,10 @@ export default function App() {
         <Text variant="h3">This is heading 3</Text>
         <Text variant="h4">This is heading 4</Text>
         <Text variant="h5">This is heading 5</Text>
-        <Text variant="subtitle1">This is subtitle 1</Text>
-        <Text variant="subtitle2">This is subtitle 2</Text>
+        <ThemeProvider value={customTheme}>
+          <Text variant="subtitle1">This is subtitle 1 with theme</Text>
+          <Text variant="subtitle2">This is subtitle 2 with theme</Text>
+        </ThemeProvider>
         <Text variant="body1">This is body 1</Text>
         <Text variant="body2">This is body 2</Text>
         <Text variant="body3">This is body 3</Text>
@@ -46,9 +55,12 @@ export default function App() {
             <Icon size={18} name="arrow-right" color={Color.Turquoise} />
           </Button>
           <Button type="outline" loading />
-          <Button type="clear" color={Color.Turquoise}>
-            Go to portfolio
-          </Button>
+          <ThemeProvider value={themeDefault}>
+            <Button type="clear">Go to portfolio</Button>
+          </ThemeProvider>
+          <ThemeProvider value={customTheme}>
+            <Button type="clear">Go to portfolio with theme</Button>
+          </ThemeProvider>
         </View>
         {/* Tag */}
         <View style={styles.section}>

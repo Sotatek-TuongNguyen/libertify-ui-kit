@@ -5,12 +5,13 @@ import {
   TouchableOpacity as RNButton,
   TouchableOpacityProps as RNButtonProps,
 } from 'react-native';
-import Color from './Color';
 import Text from './Text';
+import { themeDefault } from './ThemeProvider';
 
 interface ButtonProps extends RNButtonProps {
   textStyle?: TextStyle;
   type?: 'danger' | 'warning' | 'success' | 'secondary' | 'info';
+  theme?: typeof themeDefault;
 }
 
 export default ({
@@ -19,6 +20,7 @@ export default ({
   textStyle = {},
   style,
   activeOpacity = 1,
+  theme = themeDefault,
   ...props
 }: ButtonProps) => {
   const wrapStyles = Array.isArray(style) ? [...style] : [style];
@@ -27,38 +29,38 @@ export default ({
   wrapStyles.unshift(styles.container);
   if (type === 'danger') {
     wrapStyles.unshift({
-      borderColor: Color.Alert,
-      backgroundColor: Color.Alert + 20,
+      borderColor: theme.color.Alert,
+      backgroundColor: theme.color.Alert + 20,
     });
-    textStyles.unshift({ color: Color.Alert });
+    textStyles.unshift({ color: theme.color.Alert });
   }
   if (type === 'warning') {
     wrapStyles.unshift({
-      borderColor: Color.Warning,
-      backgroundColor: Color.Warning + 20,
+      borderColor: theme.color.Warning,
+      backgroundColor: theme.color.Warning + 20,
     });
-    textStyles.unshift({ color: Color.Warning });
+    textStyles.unshift({ color: theme.color.Warning });
   }
   if (type === 'success') {
     wrapStyles.unshift({
-      borderColor: Color.Success,
-      backgroundColor: Color.Warning + 20,
+      borderColor: theme.color.Success,
+      backgroundColor: theme.color.Warning + 20,
     });
-    textStyles.unshift({ color: Color.Success });
+    textStyles.unshift({ color: theme.color.Success });
   }
   if (type === 'secondary') {
     wrapStyles.unshift({
-      borderColor: Color.White,
-      backgroundColor: Color.White + 20,
+      borderColor: theme.color.White,
+      backgroundColor: theme.color.White + 20,
     });
-    textStyles.unshift({ color: Color.White });
+    textStyles.unshift({ color: theme.color.White });
   }
   if (type === 'info') {
     wrapStyles.unshift({
-      borderColor: Color.Turquoise,
-      backgroundColor: Color.Turquoise + 20,
+      borderColor: theme.color.Turquoise,
+      backgroundColor: theme.color.Turquoise + 20,
     });
-    textStyles.unshift({ color: Color.Turquoise });
+    textStyles.unshift({ color: theme.color.Turquoise });
   }
   return (
     <RNButton style={wrapStyles} activeOpacity={activeOpacity} {...props}>
