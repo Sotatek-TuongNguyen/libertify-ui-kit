@@ -42,9 +42,8 @@ export default ({ children, variant = 'h4', style, ...props }: TextProps) => {
   } as { [key: string]: TextStyle };
 
   const getStyles = (v: string): TextStyle | undefined => variants[v];
-  const styles = getStyles(variant);
-  const wrapStyles = Array.isArray(style) ? style : [style];
-  wrapStyles.unshift(styles);
+  const wrapStyles = Array.isArray(style) ? [...style] : [style];
+  wrapStyles.unshift(getStyles(variant));
 
   return (
     <Text {...props} style={wrapStyles}>

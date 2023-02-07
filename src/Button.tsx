@@ -28,8 +28,10 @@ export default ({
   style,
   ...props
 }: ButtonProps) => {
-  const wrapStyles = Array.isArray(style) ? style : [style];
-  const wrapTitleStyles = Array.isArray(titleStyle) ? titleStyle : [titleStyle];
+  const wrapStyles = Array.isArray(style) ? [...style] : [style];
+  const titleStyles = Array.isArray(titleStyle)
+    ? [...titleStyle]
+    : [titleStyle];
   const indicatorStyle = [] as TextStyle[];
 
   wrapStyles.unshift(styles.container);
@@ -38,11 +40,11 @@ export default ({
   }
   if (type === 'outline') {
     wrapStyles.unshift({ borderWidth: 1, borderColor: color });
-    wrapTitleStyles.unshift({ color });
+    titleStyles.unshift({ color });
     indicatorStyle.push({ color: Color.Turquoise });
   }
   if (type === 'clear') {
-    wrapTitleStyles.unshift({ color });
+    titleStyles.unshift({ color });
     indicatorStyle.push({ color: Color.Turquoise });
   }
 
@@ -54,7 +56,7 @@ export default ({
         React.Children.toArray(children).map((child, index) => (
           <React.Fragment key={index}>
             {typeof child === 'string' ? (
-              <Text style={wrapTitleStyles}>{child}</Text>
+              <Text style={titleStyles}>{child}</Text>
             ) : (
               child
             )}
