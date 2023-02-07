@@ -1,5 +1,11 @@
-import { Text, TextProps as RNTextProps, TextStyle } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextProps as RNTextProps,
+  TextStyle,
+} from 'react-native';
 import React from 'react';
+import Color from './Color';
 
 interface TextProps extends RNTextProps {
   variant?:
@@ -43,6 +49,7 @@ export default ({ children, variant = 'h4', style, ...props }: TextProps) => {
 
   const getStyles = (v: string): TextStyle | undefined => variants[v];
   const wrapStyles = Array.isArray(style) ? [...style] : [style];
+  wrapStyles.unshift(styles.text);
   wrapStyles.unshift(getStyles(variant));
 
   return (
@@ -51,3 +58,9 @@ export default ({ children, variant = 'h4', style, ...props }: TextProps) => {
     </Text>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    color: Color.White,
+  },
+});

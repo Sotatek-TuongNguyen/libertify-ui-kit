@@ -13,4 +13,5 @@ export default {
   Pink: '#FF5A82',
   Success: '#4AD772',
   Alert: '#D74A4A',
+  Warning: '#D79F4A',
 };

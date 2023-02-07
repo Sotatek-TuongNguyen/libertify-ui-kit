@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Image, SafeAreaView, StyleSheet, View } from 'react-native';
-import { Button, Color, Text } from 'libertify-ui-kit';
+import { Button, Color, Tag, Text } from 'libertify-ui-kit';
 
 export default function App() {
   return (
@@ -49,6 +49,22 @@ export default function App() {
             Go to portfolio
           </Button>
         </View>
+        {/* Tag */}
+        <View style={styles.section}>
+          <Tag>
+            <Image
+              source={{
+                uri: 'https://cdn-icons-png.flaticon.com/512/8867/8867464.png',
+              }}
+              style={[styles.iconTag, { tintColor: Color.Alert }]}
+            />
+            Mon tag
+          </Tag>
+          <Tag type="warning">Mon tag</Tag>
+          <Tag type="secondary">Mon tag</Tag>
+          <Tag type="success">Mon tag</Tag>
+          <Tag type="info">Mon tag</Tag>
+        </View>
       </SafeAreaView>
     </View>
   );
@@ -58,13 +74,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
+    backgroundColor: Color.DarkPrimary,
   },
   section: {
+    flexDirection: 'row',
+    paddingVertical: 10,
+    flexWrap: 'wrap',
     alignItems: 'flex-start',
   },
   iconBtn: {
     width: 18,
     height: 18,
+  },
+  iconTag: {
+    width: 12,
+    height: 12,
+    marginRight: 4,
   },
   roundedButton: {
     borderRadius: 40,

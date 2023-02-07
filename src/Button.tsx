@@ -15,7 +15,6 @@ interface ButtonProps extends RNButtonProps {
   loading?: boolean;
   color?: string;
   type?: 'solid' | 'clear' | 'outline';
-  backgroundColor?: string;
 }
 
 export default ({
