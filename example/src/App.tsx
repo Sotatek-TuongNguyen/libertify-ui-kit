@@ -1,9 +1,20 @@
 import * as React from 'react';
 
-import { Image, SafeAreaView, StyleSheet, View } from 'react-native';
-import { Button, Color, Tag, Text } from 'libertify-ui-kit';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import {
+  Button,
+  CheckBox,
+  Color,
+  Icon,
+  RadioButton,
+  Tag,
+  Text,
+} from 'libertify-ui-kit';
 
 export default function App() {
+  const [checked, setChecked] = React.useState(true);
+  const [indexSelected, setIndexSelected] = React.useState(0);
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -28,21 +39,11 @@ export default function App() {
         <View style={styles.section}>
           <Button>
             Go to portfolio{' '}
-            <Image
-              source={{
-                uri: 'https://cdn-icons-png.flaticon.com/512/8867/8867464.png',
-              }}
-              style={styles.iconBtn}
-            />
+            <Icon size={18} name="arrow-right" color={Color.White} />
           </Button>
           <Button type="outline">Go to portfolio</Button>
           <Button type="outline" style={styles.roundedButton}>
-            <Image
-              source={{
-                uri: 'https://cdn-icons-png.flaticon.com/512/8867/8867464.png',
-              }}
-              style={[styles.iconBtn, { tintColor: Color.Turquoise }]}
-            />
+            <Icon size={18} name="arrow-right" color={Color.Turquoise} />
           </Button>
           <Button type="outline" loading />
           <Button type="clear" color={Color.Turquoise}>
@@ -52,18 +53,26 @@ export default function App() {
         {/* Tag */}
         <View style={styles.section}>
           <Tag>
-            <Image
-              source={{
-                uri: 'https://cdn-icons-png.flaticon.com/512/8867/8867464.png',
-              }}
-              style={[styles.iconTag, { tintColor: Color.Alert }]}
-            />
-            Mon tag
+            <Icon size={11} name="arrow-right" color={Color.Alert} />
+            {` `} Mon tag
           </Tag>
           <Tag type="warning">Mon tag</Tag>
           <Tag type="secondary">Mon tag</Tag>
           <Tag type="success">Mon tag</Tag>
           <Tag type="info">Mon tag</Tag>
+        </View>
+        <View style={styles.section}>
+          <CheckBox checked={checked} size={30} onChange={setChecked} />
+        </View>
+        <View style={styles.section}>
+          {new Array(5).fill('').map((t, i) => (
+            <RadioButton
+              key={i + t}
+              checked={indexSelected === i}
+              size={30}
+              onChange={() => setIndexSelected(i)}
+            />
+          ))}
         </View>
       </SafeAreaView>
     </View>
@@ -81,15 +90,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     flexWrap: 'wrap',
     alignItems: 'flex-start',
-  },
-  iconBtn: {
-    width: 18,
-    height: 18,
-  },
-  iconTag: {
-    width: 12,
-    height: 12,
-    marginRight: 4,
   },
   roundedButton: {
     borderRadius: 40,

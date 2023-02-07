@@ -18,6 +18,7 @@ export default ({
   type = 'danger',
   textStyle = {},
   style,
+  activeOpacity = 1,
   ...props
 }: ButtonProps) => {
   const wrapStyles = Array.isArray(style) ? [...style] : [style];
@@ -60,7 +61,7 @@ export default ({
     textStyles.unshift({ color: Color.Turquoise });
   }
   return (
-    <RNButton style={wrapStyles} {...props}>
+    <RNButton style={wrapStyles} activeOpacity={activeOpacity} {...props}>
       {React.Children.toArray(children).map((child, index) => (
         <React.Fragment key={index}>
           {typeof child === 'string' ? (
