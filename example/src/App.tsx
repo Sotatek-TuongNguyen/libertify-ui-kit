@@ -12,6 +12,7 @@ import {
   ThemeProvider,
   createTheme,
   Switch,
+  Toggle,
 } from 'libertify-ui-kit';
 
 export default function App() {
@@ -102,6 +103,11 @@ export default function App() {
               { value: 0, title: 'Manual mode' },
               { value: 1, title: 'Autopilote mode' },
             ]}
+          />
+          <Toggle
+            value={indexSelected === 0}
+            onChange={(v) => setIndexSelected(v ? 0 : 1)}
+            icon={<Icon size={11} name="arrow-right" />}
           />
         </SafeAreaView>
       </View>
