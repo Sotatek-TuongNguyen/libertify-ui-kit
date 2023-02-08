@@ -11,10 +11,10 @@ import {
   Text,
   ThemeProvider,
   createTheme,
+  Switch,
 } from 'libertify-ui-kit';
 
 export default function App() {
-  const [checked, setChecked] = React.useState(true);
   const [isDark, setIsDark] = React.useState(true);
   const [indexSelected, setIndexSelected] = React.useState(0);
 
@@ -74,18 +74,35 @@ export default function App() {
             <Tag type="info">Mon tag</Tag>
           </View>
           <View style={[styles.section, styles.itemsCenter]}>
-            <CheckBox checked={checked} size={30} onChange={setChecked} />
-          </View>
-          <View style={styles.section}>
-            {new Array(5).fill('').map((t, i) => (
-              <RadioButton
-                key={i + t}
-                checked={indexSelected === i}
-                size={30}
-                onChange={() => setIndexSelected(i)}
-              />
+            {new Array(2).fill('').map((t, i) => (
+              <>
+                <RadioButton
+                  key={i + t}
+                  checked={indexSelected === i}
+                  size={30}
+                  onChange={() => setIndexSelected(i)}
+                />
+                <Text variant="body3">radio button {i}</Text>
+              </>
             ))}
           </View>
+          <Switch
+            onChange={(e) => setIndexSelected(e.value)}
+            selected={{ value: indexSelected, title: 'USD' }}
+            data={[
+              { value: 0, title: 'USD' },
+              { value: 1, title: 'ADA' },
+            ]}
+          />
+          <Switch
+            size="big"
+            onChange={(e) => setIndexSelected(e.value)}
+            selected={{ value: indexSelected, title: 'USD' }}
+            data={[
+              { value: 0, title: 'Manual mode' },
+              { value: 1, title: 'Autopilote mode' },
+            ]}
+          />
         </SafeAreaView>
       </View>
     </ThemeProvider>

@@ -5,6 +5,7 @@ import Tag from './Tag';
 import Icon from './Icon';
 import CheckBox from './CheckBox';
 import RadioButton from './RadioButton';
+import Switch from './Switch';
 import ThemeProvider, { createTheme } from './ThemeProvider';
 
 export function multiply(a: number, b: number): Promise<number> {
@@ -21,4 +22,5 @@ export {
   RadioButton,
   ThemeProvider,
   createTheme,
+  Switch,
 };
