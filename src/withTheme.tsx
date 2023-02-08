@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeContext } from './ThemeProvider';
+import { ThemeContext } from 'styled-components/native';
 
 function withTheme<P = {}>(WrappedComponent: React.ComponentType<P>) {
   const Component = (props: P, forwardRef: any) => {

@@ -24,7 +24,7 @@ export default function App() {
   });
 
   return (
-    <ThemeProvider value={isDark ? themeDefault : customTheme}>
+    <ThemeProvider theme={isDark ? themeDefault : customTheme}>
       <View style={styles.container}>
         <SafeAreaView>
           <View style={[styles.section, styles.itemsCenter]}>
