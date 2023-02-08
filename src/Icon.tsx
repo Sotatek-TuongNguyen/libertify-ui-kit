@@ -13,6 +13,7 @@ export const icons = {
   'radio-unchecked': 'https://cdn-icons-png.flaticon.com/512/7613/7613822.png',
   'checked': 'https://cdn-icons-png.flaticon.com/512/2951/2951530.png',
   'unchecked': 'https://cdn-icons-png.flaticon.com/512/8924/8924271.png',
+  'alert': 'https://cdn-icons-png.flaticon.com/512/3031/3031156.png',
 };
 
 interface IconProps extends ImageProps {

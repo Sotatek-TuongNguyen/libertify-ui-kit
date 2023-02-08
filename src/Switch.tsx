@@ -58,6 +58,7 @@ export default withTheme(
       <View style={containerStyle}>
         {data.map((e) => (
           <TouchableOpacity
+            key={e.value}
             onPress={() => _onChange(e)}
             style={[
               itemStyle,
