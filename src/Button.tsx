@@ -24,7 +24,7 @@ export default withTheme<ButtonProps>(
     title = '',
     children = title,
     theme = themeDefault,
-    color = theme.color.Turquoise,
+    color = theme.color.TURQUOISE,
     type = 'solid',
     titleStyle = {},
     loading,
@@ -40,16 +40,16 @@ export default withTheme<ButtonProps>(
     wrapStyles.unshift(styles.container);
     if (type === 'solid') {
       wrapStyles.unshift({ backgroundColor: color });
-      titleStyles.unshift({ color: theme.color.White });
+      titleStyles.unshift({ color: theme.color.WHITE });
     }
     if (type === 'outline') {
       wrapStyles.unshift({ borderWidth: 1, borderColor: color });
       titleStyles.unshift({ color });
-      indicatorStyle.push({ color: theme.color.Turquoise });
+      indicatorStyle.push({ color: theme.color.TURQUOISE });
     }
     if (type === 'clear') {
       titleStyles.unshift({ color });
-      indicatorStyle.push({ color: theme.color.Turquoise });
+      indicatorStyle.push({ color: theme.color.TURQUOISE });
     }
     return (
       <RNButton style={wrapStyles} {...props}>

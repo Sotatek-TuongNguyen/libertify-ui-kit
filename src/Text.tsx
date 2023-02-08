@@ -54,7 +54,7 @@ export default withTheme(
     const getStyles = (v: string): TextStyle | undefined => variants[v];
     const wrapStyles = Array.isArray(style) ? [...style] : [style];
     wrapStyles.unshift({
-      color: theme.color.Turquoise,
+      color: theme.color.TURQUOISE,
     });
     wrapStyles.unshift(getStyles(variant));
 

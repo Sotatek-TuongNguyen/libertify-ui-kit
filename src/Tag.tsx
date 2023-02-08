@@ -50,17 +50,17 @@ export default ({
   }
   if (type === 'secondary') {
     wrapStyles.unshift({
-      borderColor: theme.color.White,
-      backgroundColor: theme.color.White + 20,
+      borderColor: theme.color.WHITE,
+      backgroundColor: theme.color.WHITE + 20,
     });
-    textStyles.unshift({ color: theme.color.White });
+    textStyles.unshift({ color: theme.color.WHITE });
   }
   if (type === 'info') {
     wrapStyles.unshift({
-      borderColor: theme.color.Turquoise,
-      backgroundColor: theme.color.Turquoise + 20,
+      borderColor: theme.color.TURQUOISE,
+      backgroundColor: theme.color.TURQUOISE + 20,
     });
-    textStyles.unshift({ color: theme.color.Turquoise });
+    textStyles.unshift({ color: theme.color.TURQUOISE });
   }
   return (
     <RNButton style={wrapStyles} activeOpacity={activeOpacity} {...props}>

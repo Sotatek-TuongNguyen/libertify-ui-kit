@@ -25,7 +25,7 @@ export default withTheme(
     checkedIcon = 'checked',
     uncheckedIcon = 'unchecked',
     theme = themeDefault,
-    checkedColor = theme.color.Turquoise,
+    checkedColor = theme.color.TURQUOISE,
     uncheckedColor = theme.color.DisableContent,
     onChange,
   }: CheckBoxProps) => {

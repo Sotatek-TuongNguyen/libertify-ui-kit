@@ -28,7 +28,7 @@ export default ({
   source = {},
   size = 20,
   style,
-  color = Color.White,
+  color = Color.WHITE,
   ...props
 }: IconProps) => {
   const wrapStyles = Array.isArray(style) ? [...style] : [style];

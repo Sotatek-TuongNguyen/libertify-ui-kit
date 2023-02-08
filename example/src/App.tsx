@@ -20,7 +20,7 @@ export default function App() {
 
   const themeDefault = createTheme();
   const customTheme = createTheme({
-    color: { ...themeDefault.color, Turquoise: '#ffffff' },
+    color: { ...themeDefault.color, TURQUOISE: '#ffffff' },
   });
 
   return (
@@ -52,11 +52,11 @@ export default function App() {
           <View style={styles.section}>
             <Button>
               Go to portfolio{' '}
-              <Icon size={18} name="arrow-right" color={Color.White} />
+              <Icon size={18} name="arrow-right" color={Color.WHITE} />
             </Button>
             <Button type="outline">Go to portfolio</Button>
             <Button type="outline" style={styles.roundedButton}>
-              <Icon size={18} name="arrow-right" color={Color.Turquoise} />
+              <Icon size={18} name="arrow-right" color={Color.TURQUOISE} />
             </Button>
             <Button type="outline" loading />
             <Button type="clear">Go to portfolio</Button>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    backgroundColor: Color.DarkPrimary,
+    backgroundColor: Color.DARK_PRIMARY,
   },
   section: {
     flexDirection: 'row',
