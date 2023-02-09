@@ -4,6 +4,7 @@ import {
   TextStyle,
   TouchableOpacity as RNButton,
   TouchableOpacityProps as RNButtonProps,
+  ViewStyle,
 } from 'react-native';
 import Text from './Text';
 import { themeDefault } from './ThemeProvider';
@@ -23,43 +24,46 @@ export default ({
   theme = themeDefault,
   ...props
 }: ButtonProps) => {
+  const containerStyles: { [key: string]: ViewStyle } = {
+    danger: {
+      borderColor: theme.color.Alert,
+      backgroundColor: theme.color.Alert + 20,
+    },
+    warning: {
+      borderColor: theme.color.Warning,
+      backgroundColor: theme.color.Warning + 20,
+    },
+    success: {
+      borderColor: theme.color.Success,
+      backgroundColor: theme.color.Warning + 20,
+    },
+    secondary: {
+      borderColor: theme.color.WHITE,
+      backgroundColor: theme.color.WHITE + 20,
+    },
+    info: {
+      borderColor: theme.color.TURQUOISE,
+      backgroundColor: theme.color.TURQUOISE + 20,
+    },
+  };
   const wrapStyles = Array.isArray(style) ? [...style] : [style];
   const textStyles = Array.isArray(textStyle) ? [...textStyle] : [textStyle];
 
   wrapStyles.unshift(styles.container);
+  wrapStyles.unshift(containerStyles[type]);
   if (type === 'danger') {
-    wrapStyles.unshift({
-      borderColor: theme.color.Alert,
-      backgroundColor: theme.color.Alert + 20,
-    });
     textStyles.unshift({ color: theme.color.Alert });
   }
   if (type === 'warning') {
-    wrapStyles.unshift({
-      borderColor: theme.color.Warning,
-      backgroundColor: theme.color.Warning + 20,
-    });
     textStyles.unshift({ color: theme.color.Warning });
   }
   if (type === 'success') {
-    wrapStyles.unshift({
-      borderColor: theme.color.Success,
-      backgroundColor: theme.color.Warning + 20,
-    });
     textStyles.unshift({ color: theme.color.Success });
   }
   if (type === 'secondary') {
-    wrapStyles.unshift({
-      borderColor: theme.color.WHITE,
-      backgroundColor: theme.color.WHITE + 20,
-    });
     textStyles.unshift({ color: theme.color.WHITE });
   }
   if (type === 'info') {
-    wrapStyles.unshift({
-      borderColor: theme.color.TURQUOISE,
-      backgroundColor: theme.color.TURQUOISE + 20,
-    });
     textStyles.unshift({ color: theme.color.TURQUOISE });
   }
   return (

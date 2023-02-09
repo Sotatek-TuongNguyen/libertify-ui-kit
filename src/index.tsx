@@ -9,6 +9,7 @@ import Switch from './Switch';
 import Toggle from './Toggle';
 import Advice from './Advice';
 import CardAction from './CardAction';
+import CardInfo from './CardInfo';
 import ThemeProvider, { createTheme } from './ThemeProvider';
 
 export function multiply(a: number, b: number): Promise<number> {
@@ -29,4 +30,5 @@ export {
   Toggle,
   Advice,
   CardAction,
+  CardInfo,
 };

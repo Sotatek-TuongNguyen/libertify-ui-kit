@@ -39,17 +39,17 @@ export default withTheme<ButtonProps>(
 
     wrapStyles.unshift(styles.container);
     if (type === 'solid') {
-      wrapStyles.unshift({ backgroundColor: color });
+      wrapStyles.unshift({ backgroundColor: color, padding: 20 });
       titleStyles.unshift({ color: theme.color.DARK_SECONDARY });
     }
     if (type === 'outline') {
-      wrapStyles.unshift({ borderWidth: 1, borderColor: color });
+      wrapStyles.unshift({ borderWidth: 1, borderColor: color, padding: 20 });
       titleStyles.unshift({ color });
       indicatorStyle.push({ color: theme.color.TURQUOISE });
     }
     if (type === 'clear') {
       titleStyles.unshift({ color });
-      indicatorStyle.push({ color: theme.color.TURQUOISE });
+      indicatorStyle.push({ color: theme.color.TURQUOISE, padding: 5 });
     }
     return (
       <RNButton style={wrapStyles} {...props}>
@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    padding: 20,
     borderRadius: 10,
   },
 });

@@ -15,6 +15,7 @@ import {
   Toggle,
   Advice,
   CardAction,
+  CardInfo,
 } from 'libertify-ui-kit';
 
 export default function App() {
@@ -110,16 +111,84 @@ export default function App() {
           onChange={(v) => setIndexSelected(v ? 0 : 1)}
           icon={<Icon size={11} name="arrow-right" />}
         />
+        {/* Card Info */}
+        <CardInfo
+          title="My title"
+          iconTitle={<Icon size={16} name="arrow-right" />}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
+          libero.
+        </CardInfo>
+        <CardInfo
+          title="My title"
+          iconContent={<Icon size={16} name="arrow-right" />}
+          rightHeader={<Text variant="body3">SKIP</Text>}
+          footer={
+            <Button
+              color={themeDefault.color.TURQUOISE}
+              style={[
+                styles.mt10,
+                {
+                  alignSelf: 'flex-start',
+                  paddingLeft: 0,
+                },
+              ]}
+              type="clear"
+            >
+              Next
+            </Button>
+          }
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
+          libero.
+        </CardInfo>
+        <CardInfo
+          title="My title"
+          type="outline"
+          color={themeDefault.color.Alert}
+          rightHeader={<Tag type="danger">Default</Tag>}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
+          libero.
+        </CardInfo>
+        <CardInfo
+          type="clear"
+          color={themeDefault.color.Alert}
+          iconContent={
+            <Icon
+              size={16}
+              name="arrow-right"
+              color={themeDefault.color.Alert}
+            />
+          }
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
+          libero.
+        </CardInfo>
+        {/* Card Action */}
         <CardAction
           title="My title"
           content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam libero."
         >
+          <CardInfo
+            style={styles.mv10}
+            iconContent={
+              <Icon
+                size={16}
+                name="arrow-right"
+                color={themeDefault.color.TURQUOISE}
+              />
+            }
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
+            libero.
+          </CardInfo>
           <Toggle
             value={indexSelected === 0}
             onChange={(v) => setIndexSelected(v ? 0 : 1)}
             icon={<Icon size={11} name="arrow-right" />}
           />
-          <Button>Button</Button>
+          <Button style={styles.mt10}>Button</Button>
         </CardAction>
         <Advice
           title="New Advice Alert"
@@ -151,5 +220,11 @@ const styles = StyleSheet.create({
   },
   itemsCenter: {
     alignItems: 'center',
+  },
+  mt10: {
+    marginTop: 10,
+  },
+  mv10: {
+    marginVertical: 10,
   },
 });
