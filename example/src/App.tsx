@@ -17,6 +17,7 @@ import {
   CardAction,
   CardInfo,
   DiaLog,
+  Stepper,
 } from 'libertify-ui-kit';
 
 export default function App() {
@@ -87,6 +88,15 @@ export default function App() {
             Go to portfolio
           </Button>
         </DiaLog>
+        <Stepper style={styles.mt10} total={10} value={5} />
+        <Stepper
+          style={styles.mt10}
+          total={5}
+          value={2}
+          itemStyle={{ borderRadius: 5, height: 4 }}
+          activeColor={themeDefault.color.WHITE}
+          separator={5}
+        />
         {/* Button */}
         <View style={styles.section}>
           <Button onPress={() => setVisibleDialog(true)}>

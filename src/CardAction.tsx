@@ -6,7 +6,7 @@ import CardInfo from './CardInfo';
 
 interface CardActionProps {
   theme?: Theme;
-  children?: JSX.Element;
+  children?: JSX.Element | JSX.Element[];
   title?: string;
   content?: string;
 }

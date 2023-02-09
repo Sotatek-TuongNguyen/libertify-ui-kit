@@ -14,7 +14,7 @@ interface CardInfoProps {
   style?: ViewStyle | ViewStyle[];
   leftHeader?: JSX.Element;
   rightHeader?: JSX.Element;
-  footer?: JSX.Element;
+  footer?: JSX.Element | JSX.Element[];
   contentStyle?: ViewStyle;
 }
 

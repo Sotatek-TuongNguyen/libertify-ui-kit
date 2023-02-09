@@ -11,6 +11,7 @@ import Advice from './Advice';
 import CardAction from './CardAction';
 import CardInfo from './CardInfo';
 import DiaLog from './DiaLog';
+import Stepper from './Stepper';
 import ThemeProvider, { createTheme } from './ThemeProvider';
 
 export function multiply(a: number, b: number): Promise<number> {
@@ -33,4 +34,5 @@ export {
   CardAction,
   CardInfo,
   DiaLog,
+  Stepper,
 };
