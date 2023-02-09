@@ -10,6 +10,7 @@ import Toggle from './Toggle';
 import Advice from './Advice';
 import CardAction from './CardAction';
 import CardInfo from './CardInfo';
+import DiaLog from './DiaLog';
 import ThemeProvider, { createTheme } from './ThemeProvider';
 
 export function multiply(a: number, b: number): Promise<number> {
@@ -31,4 +32,5 @@ export {
   Advice,
   CardAction,
   CardInfo,
+  DiaLog,
 };

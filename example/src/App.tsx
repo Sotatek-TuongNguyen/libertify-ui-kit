@@ -16,11 +16,13 @@ import {
   Advice,
   CardAction,
   CardInfo,
+  DiaLog,
 } from 'libertify-ui-kit';
 
 export default function App() {
   const [isDark, setIsDark] = React.useState(true);
   const [indexSelected, setIndexSelected] = React.useState(0);
+  const [visibleDialog, setVisibleDialog] = React.useState(false);
 
   const themeDefault = createTheme();
   const customTheme = createTheme({
@@ -52,10 +54,43 @@ export default function App() {
         <Text variant="value2">This is value 2</Text>
         <Text variant="smallContent">This is small content</Text>
         <Text variant="overline">This is overline</Text>
+        {/* DiaLog */}
+        <DiaLog
+          leftHeader={<Tag type="warning">Mon tag</Tag>}
+          title="My title"
+          visible={visibleDialog}
+          onRequestClose={() => setVisibleDialog(false)}
+        >
+          <Text variant="body3">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
+            libero.
+          </Text>
+          <CardInfo
+            style={[
+              styles.mv10,
+              styles.customCardInfo,
+              { backgroundColor: themeDefault.color.DARK_TURQUOISE },
+            ]}
+            iconContent={
+              <Icon
+                size={16}
+                name="arrow-right"
+                color={themeDefault.color.TURQUOISE}
+              />
+            }
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
+            libero.
+          </CardInfo>
+          <Button>Go to portfolio</Button>
+          <Button type="clear" style={styles.mt10}>
+            Go to portfolio
+          </Button>
+        </DiaLog>
         {/* Button */}
         <View style={styles.section}>
-          <Button>
-            Go to portfolio{' '}
+          <Button onPress={() => setVisibleDialog(true)}>
+            Open Dialog{' '}
             <Icon size={18} name="arrow-right" color={Color.DARK_SECONDARY} />
           </Button>
           <Button type="outline">Go to portfolio</Button>
@@ -114,7 +149,7 @@ export default function App() {
         {/* Card Info */}
         <CardInfo
           title="My title"
-          iconTitle={<Icon size={16} name="arrow-right" />}
+          leftHeader={<Icon size={16} name="arrow-right" />}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
           libero.
@@ -126,13 +161,7 @@ export default function App() {
           footer={
             <Button
               color={themeDefault.color.TURQUOISE}
-              style={[
-                styles.mt10,
-                {
-                  alignSelf: 'flex-start',
-                  paddingLeft: 0,
-                },
-              ]}
+              style={[styles.mt10, { alignSelf: 'flex-start' }]}
               type="clear"
             >
               Next
@@ -226,5 +255,9 @@ const styles = StyleSheet.create({
   },
   mv10: {
     marginVertical: 10,
+  },
+  customCardInfo: {
+    marginHorizontal: -20,
+    borderRadius: 0,
   },
 });

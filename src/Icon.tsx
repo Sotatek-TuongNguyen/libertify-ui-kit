@@ -14,6 +14,7 @@ export const icons = {
   'checked': 'https://cdn-icons-png.flaticon.com/512/2951/2951530.png',
   'unchecked': 'https://cdn-icons-png.flaticon.com/512/8924/8924271.png',
   'alert': 'https://cdn-icons-png.flaticon.com/512/3031/3031156.png',
+  'close': 'https://cdn-icons-png.flaticon.com/512/271/271203.png',
 };
 
 interface IconProps extends ImageProps {

@@ -49,7 +49,7 @@ export default withTheme<ButtonProps>(
     }
     if (type === 'clear') {
       titleStyles.unshift({ color });
-      indicatorStyle.push({ color: theme.color.TURQUOISE, padding: 5 });
+      indicatorStyle.push({ color: theme.color.TURQUOISE, padding: 0 });
     }
     return (
       <RNButton style={wrapStyles} {...props}>

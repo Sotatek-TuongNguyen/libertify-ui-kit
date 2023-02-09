@@ -11,8 +11,8 @@ interface CardInfoProps {
   color?: string;
   children?: string | JSX.Element | JSX.Element[];
   iconContent?: JSX.Element;
-  iconTitle?: JSX.Element;
-  style?: ViewStyle;
+  style?: ViewStyle | ViewStyle[];
+  leftHeader?: JSX.Element;
   rightHeader?: JSX.Element;
   footer?: JSX.Element;
   contentStyle?: ViewStyle;
@@ -26,7 +26,7 @@ export default withTheme(
     color = theme.color.WHITE,
     children,
     iconContent,
-    iconTitle,
+    leftHeader,
     style = {},
     rightHeader,
     footer,
@@ -77,7 +77,7 @@ export default withTheme(
     return (
       <View style={wrapStyles}>
         <View style={styles.row}>
-          {iconTitle && <View style={styles.wrapIcon}>{iconTitle}</View>}
+          {leftHeader && <View style={styles.wrapIcon}>{leftHeader}</View>}
           {title && (
             <Text variant="h4" style={[styles.flex1, textStyles[type]]}>
               {title}
@@ -87,17 +87,19 @@ export default withTheme(
         </View>
         <View style={wrapContentStyle}>
           {iconContent && <View style={styles.wrapIcon}>{iconContent}</View>}
-          {React.Children.toArray(children).map((child, index) => (
-            <React.Fragment key={index}>
-              {typeof child === 'string' ? (
-                <Text variant="body3" style={[styles.flex1, textStyles[type]]}>
-                  {child}
-                </Text>
-              ) : (
-                child
-              )}
-            </React.Fragment>
-          ))}
+          <View style={styles.flex1}>
+            {React.Children.toArray(children).map((child, index) => (
+              <React.Fragment key={index}>
+                {typeof child === 'string' ? (
+                  <Text variant="body3" style={textStyles[type]}>
+                    {child}
+                  </Text>
+                ) : (
+                  child
+                )}
+              </React.Fragment>
+            ))}
+          </View>
         </View>
         {footer}
       </View>
