@@ -20,6 +20,8 @@ import {
   Stepper,
 } from 'libertify-ui-kit';
 
+const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam libero.`;
+
 export default function App() {
   const [isDark, setIsDark] = React.useState(true);
   const [indexSelected, setIndexSelected] = React.useState(0);
@@ -62,17 +64,14 @@ export default function App() {
           visible={visibleDialog}
           onRequestClose={() => setVisibleDialog(false)}
         >
-          <Text variant="body3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
-            libero.
-          </Text>
+          <Text variant="body3">{lorem}</Text>
           <CardInfo
             style={[
               styles.mv10,
               styles.customCardInfo,
               { backgroundColor: themeDefault.color.DARK_TURQUOISE },
             ]}
-            iconContent={
+            leftContent={
               <Icon
                 size={16}
                 name="arrow-right"
@@ -80,8 +79,7 @@ export default function App() {
               />
             }
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
-            libero.
+            {lorem}
           </CardInfo>
           <Button>Go to portfolio</Button>
           <Button type="clear" style={styles.mt10}>
@@ -158,15 +156,26 @@ export default function App() {
         />
         {/* Card Info */}
         <CardInfo
-          title="My title"
-          leftHeader={<Icon size={16} name="arrow-right" />}
+          style={[
+            styles.pv10,
+            {
+              backgroundColor: themeDefault.color.Alert,
+            },
+          ]}
+          leftContent={<Icon size={20} name="alert" />}
+          rightContent={<Icon size={16} name="close" />}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
-          libero.
+          {lorem}
         </CardInfo>
         <CardInfo
           title="My title"
-          iconContent={<Icon size={16} name="arrow-right" />}
+          leftHeader={<Icon size={16} name="arrow-right" />}
+        >
+          {lorem}
+        </CardInfo>
+        <CardInfo
+          title="My title"
+          leftContent={<Icon size={16} name="arrow-right" />}
           rightHeader={<Text variant="body3">SKIP</Text>}
           footer={
             <Button
@@ -178,8 +187,7 @@ export default function App() {
             </Button>
           }
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
-          libero.
+          {lorem}
         </CardInfo>
         <CardInfo
           title="My title"
@@ -187,13 +195,12 @@ export default function App() {
           color={themeDefault.color.Alert}
           rightHeader={<Tag type="danger">Default</Tag>}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
-          libero.
+          {lorem}
         </CardInfo>
         <CardInfo
           type="clear"
           color={themeDefault.color.Alert}
-          iconContent={
+          leftContent={
             <Icon
               size={16}
               name="arrow-right"
@@ -201,17 +208,13 @@ export default function App() {
             />
           }
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
-          libero.
+          {lorem}
         </CardInfo>
         {/* Card Action */}
-        <CardAction
-          title="My title"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam libero."
-        >
+        <CardAction title="My title" content={lorem}>
           <CardInfo
             style={styles.mv10}
-            iconContent={
+            leftContent={
               <Icon
                 size={16}
                 name="arrow-right"
@@ -219,8 +222,7 @@ export default function App() {
               />
             }
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam
-            libero.
+            {lorem}
           </CardInfo>
           <Toggle
             value={indexSelected === 0}
@@ -269,5 +271,8 @@ const styles = StyleSheet.create({
   customCardInfo: {
     marginHorizontal: -20,
     borderRadius: 0,
+  },
+  pv10: {
+    paddingVertical: 10,
   },
 });

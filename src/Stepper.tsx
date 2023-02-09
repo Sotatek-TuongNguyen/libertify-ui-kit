@@ -10,7 +10,7 @@ interface StepperProps {
   activeColor?: string;
   theme?: Theme;
   itemStyle?: ViewStyle;
-  style?: ViewStyle;
+  style?: ViewStyle | ViewStyle[];
 }
 
 export default withTheme(

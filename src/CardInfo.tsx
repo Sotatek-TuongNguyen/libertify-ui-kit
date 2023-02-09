@@ -10,7 +10,8 @@ interface CardInfoProps {
   type?: 'solid' | 'clear' | 'outline';
   color?: string;
   children?: string | JSX.Element | JSX.Element[];
-  iconContent?: JSX.Element;
+  leftContent?: JSX.Element;
+  rightContent?: JSX.Element;
   style?: ViewStyle | ViewStyle[];
   leftHeader?: JSX.Element;
   rightHeader?: JSX.Element;
@@ -25,7 +26,8 @@ export default withTheme(
     type = 'solid',
     color = theme.color.WHITE,
     children,
-    iconContent,
+    leftContent,
+    rightContent,
     leftHeader,
     style = {},
     rightHeader,
@@ -86,7 +88,7 @@ export default withTheme(
           {rightHeader}
         </View>
         <View style={wrapContentStyle}>
-          {iconContent && <View style={styles.wrapIcon}>{iconContent}</View>}
+          {leftContent && <View style={styles.wrapIcon}>{leftContent}</View>}
           <View style={styles.flex1}>
             {React.Children.toArray(children).map((child, index) => (
               <React.Fragment key={index}>
@@ -100,6 +102,7 @@ export default withTheme(
               </React.Fragment>
             ))}
           </View>
+          {rightContent && rightContent}
         </View>
         {footer}
       </View>
