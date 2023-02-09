@@ -40,7 +40,7 @@ export default withTheme<ButtonProps>(
     wrapStyles.unshift(styles.container);
     if (type === 'solid') {
       wrapStyles.unshift({ backgroundColor: color });
-      titleStyles.unshift({ color: theme.color.WHITE });
+      titleStyles.unshift({ color: theme.color.DARK_SECONDARY });
     }
     if (type === 'outline') {
       wrapStyles.unshift({ borderWidth: 1, borderColor: color });

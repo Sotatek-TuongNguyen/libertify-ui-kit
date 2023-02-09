@@ -45,8 +45,11 @@ export default withTheme(
         </View>
         <View style={bodyStyle}>
           <View style={styles.items}>
-            {data.map((e) => (
-              <View style={[styles.adviceItem, { backgroundColor: e.color }]}>
+            {data.map((e, i) => (
+              <View
+                key={i}
+                style={[styles.adviceItem, { backgroundColor: e.color }]}
+              >
                 <View style={styles.wrapIcon}>{e.icon}</View>
                 <Text
                   variant="caption"

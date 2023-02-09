@@ -8,6 +8,7 @@ import RadioButton from './RadioButton';
 import Switch from './Switch';
 import Toggle from './Toggle';
 import Advice from './Advice';
+import CardAction from './CardAction';
 import ThemeProvider, { createTheme } from './ThemeProvider';
 
 export function multiply(a: number, b: number): Promise<number> {
@@ -27,4 +28,5 @@ export {
   Switch,
   Toggle,
   Advice,
+  CardAction,
 };

@@ -14,6 +14,7 @@ import {
   Switch,
   Toggle,
   Advice,
+  CardAction,
 } from 'libertify-ui-kit';
 
 export default function App() {
@@ -54,7 +55,7 @@ export default function App() {
         <View style={styles.section}>
           <Button>
             Go to portfolio{' '}
-            <Icon size={18} name="arrow-right" color={Color.WHITE} />
+            <Icon size={18} name="arrow-right" color={Color.DARK_SECONDARY} />
           </Button>
           <Button type="outline">Go to portfolio</Button>
           <Button type="outline" style={styles.roundedButton}>
@@ -77,15 +78,14 @@ export default function App() {
         </View>
         <View style={[styles.section, styles.itemsCenter]}>
           {new Array(2).fill('').map((t, i) => (
-            <>
+            <React.Fragment key={i + t}>
               <RadioButton
-                key={i + t}
                 checked={indexSelected === i}
                 size={30}
                 onChange={() => setIndexSelected(i)}
               />
               <Text variant="body3">radio button {i}</Text>
-            </>
+            </React.Fragment>
           ))}
         </View>
         <Switch
@@ -110,6 +110,17 @@ export default function App() {
           onChange={(v) => setIndexSelected(v ? 0 : 1)}
           icon={<Icon size={11} name="arrow-right" />}
         />
+        <CardAction
+          title="My title"
+          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam libero."
+        >
+          <Toggle
+            value={indexSelected === 0}
+            onChange={(v) => setIndexSelected(v ? 0 : 1)}
+            icon={<Icon size={11} name="arrow-right" />}
+          />
+          <Button>Button</Button>
+        </CardAction>
         <Advice
           title="New Advice Alert"
           data={new Array(4).fill({
