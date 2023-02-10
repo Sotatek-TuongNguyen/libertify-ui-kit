@@ -18,6 +18,7 @@ import {
   CardInfo,
   DiaLog,
   Stepper,
+  BulletPoint,
 } from 'libertify-ui-kit';
 
 const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam libero.`;
@@ -149,6 +150,7 @@ export default function App() {
             { value: 1, title: 'Autopilote mode' },
           ]}
         />
+        <BulletPoint total={5} value={indexSelected + 1} style={styles.mv10} />
         <Switch
           style={{ padding: 5 }}
           itemStyle={styles.pv10}
@@ -158,8 +160,8 @@ export default function App() {
           data={[
             { value: 0, title: 'Meerkat' },
             { value: 1, title: 'Beaver' },
-            { value: 3, title: 'Tiger' },
-            { value: 4, title: 'Shark' },
+            { value: 2, title: 'Tiger' },
+            { value: 3, title: 'Shark' },
           ]}
         />
         <Toggle

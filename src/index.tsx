@@ -12,6 +12,7 @@ import CardAction from './CardAction';
 import CardInfo from './CardInfo';
 import DiaLog from './DiaLog';
 import Stepper from './Stepper';
+import BulletPoint from './BulletPoint';
 import ThemeProvider, { createTheme } from './ThemeProvider';
 
 export function multiply(a: number, b: number): Promise<number> {
@@ -35,4 +36,5 @@ export {
   CardInfo,
   DiaLog,
   Stepper,
+  BulletPoint,
 };
