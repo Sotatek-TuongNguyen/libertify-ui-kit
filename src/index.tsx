@@ -14,6 +14,7 @@ import DiaLog from './DiaLog';
 import Stepper from './Stepper';
 import BulletPoint from './BulletPoint';
 import EmptyGraph from './EmptyGraph';
+import Legend from './Legend';
 import ThemeProvider, { createTheme } from './ThemeProvider';
 import useTheme from './useTheme';
 import withTheme from './withTheme';
@@ -37,4 +38,5 @@ export {
   Stepper,
   BulletPoint,
   EmptyGraph,
+  Legend,
 };

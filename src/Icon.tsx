@@ -11,8 +11,9 @@ export const icons = {
   'arrow-right': 'https://cdn-icons-png.flaticon.com/512/8867/8867464.png',
   'radio-checked': 'https://cdn-icons-png.flaticon.com/512/8509/8509277.png',
   'radio-unchecked': 'https://cdn-icons-png.flaticon.com/512/7613/7613822.png',
-  'checked': 'https://cdn-icons-png.flaticon.com/512/2951/2951530.png',
-  'unchecked': 'https://cdn-icons-png.flaticon.com/512/8924/8924271.png',
+  'checked': 'https://cdn-icons-png.flaticon.com/512/1055/1055183.png',
+  'box-checked': 'https://cdn-icons-png.flaticon.com/512/2951/2951530.png',
+  'box-unchecked': 'https://cdn-icons-png.flaticon.com/512/8924/8924271.png',
   'alert': 'https://cdn-icons-png.flaticon.com/512/3031/3031156.png',
   'close': 'https://cdn-icons-png.flaticon.com/512/271/271203.png',
 };

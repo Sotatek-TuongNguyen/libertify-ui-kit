@@ -20,6 +20,7 @@ import {
   Stepper,
   BulletPoint,
   EmptyGraph,
+  Legend,
 } from 'libertify-ui-kit';
 
 const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam libero.`;
@@ -60,6 +61,19 @@ export default function App() {
         <Text variant="smallContent">This is small content</Text>
         <Text variant="overline">This is overline</Text>
         <EmptyGraph title={lorem} day="5 days" />
+        <View style={styles.section}>
+          <Legend
+            title="Performance"
+            color={themeDefault.color.TURQUOISE}
+            checked
+            value="0.6"
+          />
+          <Legend
+            title="Accepted"
+            color={themeDefault.color.Alert}
+            value="0.8"
+          />
+        </View>
         {/* DiaLog */}
         <DiaLog
           leftHeader={<Tag type="warning">Mon tag</Tag>}
