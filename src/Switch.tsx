@@ -14,6 +14,8 @@ interface SwitchProps {
   onChange?: (item: ItemSwitch) => void;
   theme?: Theme;
   size?: 'small' | 'big';
+  style?: ViewStyle | ViewStyle[];
+  itemStyle?: ViewStyle | ViewStyle[];
 }
 
 export default withTheme(
@@ -23,6 +25,8 @@ export default withTheme(
     onChange,
     theme = themeDefault,
     size = 'small',
+    style,
+    itemStyle,
   }: SwitchProps) => {
     const styleActive: ViewStyle = {
       backgroundColor: theme?.color.TURQUOISE,
@@ -35,11 +39,14 @@ export default withTheme(
       color: size === 'small' ? theme.color.DisableContent : theme.color.WHITE,
     };
 
-    const itemStyle: ViewStyle = {
+    const itemStyles = Array.isArray(itemStyle) ? [...itemStyle] : [itemStyle];
+    itemStyles.unshift({
       paddingHorizontal: size === 'small' ? 10 : 15,
       paddingVertical: size === 'small' ? 4 : 15,
       borderRadius: size === 'small' ? 40 : 10,
-    };
+    });
+
+    const containerStyles = Array.isArray(style) ? [...style] : [style];
 
     const containerStyle: ViewStyle = {
       flexDirection: 'row',
@@ -52,16 +59,18 @@ export default withTheme(
         size === 'small' ? theme.color.DisableContent : theme.color.GreyPrimary,
     };
 
+    containerStyles.unshift(containerStyle);
+
     const _onChange = (e: ItemSwitch) => onChange && onChange(e);
 
     return (
-      <View style={containerStyle}>
+      <View style={containerStyles}>
         {data.map((e) => (
           <TouchableOpacity
             key={e.value}
             onPress={() => _onChange(e)}
             style={[
-              itemStyle,
+              itemStyles,
               selected && selected.value === e.value
                 ? styleActive
                 : styleInActive,

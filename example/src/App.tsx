@@ -149,6 +149,19 @@ export default function App() {
             { value: 1, title: 'Autopilote mode' },
           ]}
         />
+        <Switch
+          style={{ padding: 5 }}
+          itemStyle={styles.pv10}
+          size="big"
+          onChange={(e) => setIndexSelected(e.value)}
+          selected={{ value: indexSelected, title: 'USD' }}
+          data={[
+            { value: 0, title: 'Meerkat' },
+            { value: 1, title: 'Beaver' },
+            { value: 3, title: 'Tiger' },
+            { value: 4, title: 'Shark' },
+          ]}
+        />
         <Toggle
           value={indexSelected === 0}
           onChange={(v) => setIndexSelected(v ? 0 : 1)}
