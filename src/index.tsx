@@ -14,10 +14,10 @@ import DiaLog from './DiaLog';
 import Stepper from './Stepper';
 import BulletPoint from './BulletPoint';
 import ThemeProvider, { createTheme } from './ThemeProvider';
+import useTheme from './useTheme';
+import withTheme from './withTheme';
 
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
+export { ThemeProvider, createTheme, useTheme, withTheme };
 
 export {
   Color,
@@ -27,8 +27,6 @@ export {
   Icon,
   CheckBox,
   RadioButton,
-  ThemeProvider,
-  createTheme,
   Switch,
   Toggle,
   Advice,
