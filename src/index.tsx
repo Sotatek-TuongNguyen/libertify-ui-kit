@@ -13,6 +13,7 @@ import CardInfo from './CardInfo';
 import DiaLog from './DiaLog';
 import Stepper from './Stepper';
 import BulletPoint from './BulletPoint';
+import EmptyGraph from './EmptyGraph';
 import ThemeProvider, { createTheme } from './ThemeProvider';
 import useTheme from './useTheme';
 import withTheme from './withTheme';
@@ -35,4 +36,5 @@ export {
   DiaLog,
   Stepper,
   BulletPoint,
+  EmptyGraph,
 };

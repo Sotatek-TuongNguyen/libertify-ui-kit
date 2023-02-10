@@ -19,6 +19,7 @@ import {
   DiaLog,
   Stepper,
   BulletPoint,
+  EmptyGraph,
 } from 'libertify-ui-kit';
 
 const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu diam libero.`;
@@ -58,6 +59,7 @@ export default function App() {
         <Text variant="value2">This is value 2</Text>
         <Text variant="smallContent">This is small content</Text>
         <Text variant="overline">This is overline</Text>
+        <EmptyGraph title={lorem} day="5 days" />
         {/* DiaLog */}
         <DiaLog
           leftHeader={<Tag type="warning">Mon tag</Tag>}
